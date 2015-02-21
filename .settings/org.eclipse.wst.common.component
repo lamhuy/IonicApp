@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="web">
         <wb-resource deploy-path="/" source-path="/www"/>
+        <wb-resource deploy-path="/fb" source-path="/www/lib/ng-facebook/test"/>
         <property name="context-root" value="ionicApp"/>
     </wb-module>
 </project-modules>
