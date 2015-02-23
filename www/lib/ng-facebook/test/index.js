@@ -8,7 +8,7 @@
 
 angular.module('myApp', ['ngFacebook'])
   .config(['$facebookProvider', function($facebookProvider) {
-    $facebookProvider.setAppId('174491804387').setPermissions(['email', 'user_relationships', 'user_likes', 'user_friends']);
+    $facebookProvider.setAppId('174491804387').setPermissions(['email', 'user_hometown', 'user_photos', 'user_about_me', 'user_birthday', 'user_relationships', 'user_likes', 'user_friends']);
   }])
   .run(['$rootScope', '$window', function($rootScope, $window) {
     (function(d, s, id) {
@@ -40,6 +40,23 @@ angular.module('myApp', ['ngFacebook'])
       }
     };
 
+
+    $scope.getPicture = function() {
+        if(!$scope.status) return;
+        $facebook.cachedApi('/me/picture').then(function(picture) {
+        	console.info("Got picture: ", picture.data)
+          $scope.picture = picture.data;
+        });
+      }
+    
+    $scope.getPhotos = function() {
+        if(!$scope.status) return;
+        $facebook.cachedApi('/me/photos').then(function(photos) {
+        	console.info("Got photo: ", photos.data)
+          $scope.photos = photos.data;
+        });
+      }
+    
     $scope.getFriends = function() {
       if(!$scope.status) return;
       $facebook.cachedApi('/me/friends').then(function(friends) {

@@ -22,6 +22,7 @@
         <span ng-if="status" class="message">
             You are <strong>Logged in</strong> as <em>{{user.first_name}} {{user.last_name}}</em>
         </span>
+        <div>FULL USER INFO: {{user}}</div>        
         <span ng-if="!status" class="message">
             You are <strong>not</strong> logged in.
         </span>
@@ -44,6 +45,31 @@
             <h3>List of family:</h3>
             <ul id="friend-list">
                 <li ng-repeat="member in family">{{member}}</li>
+            </ul>
+        </div>
+    </div>
+    
+    
+    <div ng-show="status">
+        <h2>Photo via cachedApi:</h2>
+        <button id="friends-btn" ng-click="getPhotos()">Get Photo</button>
+        <div ng-show="photos">
+            <h3>List of photos:</h3>
+            <ul id="friend-list">
+                <li ng-repeat="photo in photos">{{photo}}</li>
+            </ul>
+        </div>
+    </div>
+    
+    
+    <div ng-show="status">
+        <h2>Picture via cachedApi:</h2>
+        <button id="friends-btn" ng-click="getPicture()">Get Picture</button>
+        <div ng-show="picture">
+            <h3>List of picture:</h3>
+            <ul id="friend-list">
+       <!--          <li ng-repeat="photo in photos">{{photo}}</li> -->
+       			<li>{{picture}}</li>
             </ul>
         </div>
     </div>
